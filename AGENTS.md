@@ -16,9 +16,9 @@ OpenBrief is a Tauri v2 desktop app with a React/TypeScript renderer and a Rust 
 
 ## Architecture Rules
 
-- Keep pure domain logic in `tauri/src/domain`.
-- Keep side effects in `tauri/src/services`, `tauri/src/hooks`, or Rust commands.
-- Keep feature UI under `tauri/src/features`; share reusable controls through `tauri/src/components`.
+- Keep pure domain logic in `client/apps/tauri/src/domain`.
+- Keep side effects in `client/apps/tauri/src/services`, `client/apps/tauri/src/hooks`, or Rust commands.
+- Keep feature UI under `client/apps/tauri/src/features`; share reusable controls through `client/apps/tauri/src/components`.
 - Prefer shadcn UI components and accessible controls for renderer UI.
 - Primary app pages should use the available content width. Do not center page roots with narrow `max-w-*` wrappers unless the view is explicitly a reading/help/onboarding surface, dialog, or other intentionally constrained content.
 - User-visible renderer strings should go through i18n.
@@ -39,10 +39,10 @@ OpenBrief is a Tauri v2 desktop app with a React/TypeScript renderer and a Rust 
 
 Run the smallest useful checks first, then widen as needed:
 
-- `cd tauri && pnpm test:run <pattern>` for focused frontend/domain/service tests.
-- `cd tauri && pnpm typecheck` for TypeScript changes.
-- `cd tauri && pnpm build` when app bundling or Vite integration may be affected.
-- `cd tauri/src-tauri && cargo test` or `cargo check` for Rust changes.
+- `cd client/apps/tauri && pnpm test:run <pattern>` for focused frontend/domain/service tests.
+- `cd client/apps/tauri && pnpm typecheck` for TypeScript changes.
+- `cd client/apps/tauri && pnpm build` when app bundling or Vite integration may be affected.
+- `cd client/apps/tauri/src-tauri && cargo test` or `cargo check` for Rust changes.
 - `git diff --check` before reporting completion.
 
 ## Commits
